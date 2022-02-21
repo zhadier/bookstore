@@ -7,17 +7,17 @@
 > The "Bookstore" is a website similar to the "Awesome Books" website that I've built previously but better. Be sure to checkout the Live links where you can display, add, or remove books of your choice in the Bookstore :)
 
 
-![preview](maths.gif)
+<!-- ![preview](maths.gif) -->
 This is my first React and Redux projetc.
 ## Built With
 
 - HTML / CSS / JavaScript / React / Redux
 
 ## Live Demo
-
+<!-- 
 - [Github Page](https://zhadier.github.io/math-magicians)
 - [Heroku](https://zeeshan-math-magicians.herokuapp.com/)
-- [Netlify](https://zhadier-math-magicians.netlify.app/)
+- [Netlify](https://zhadier-math-magicians.netlify.app/) -->
 ## Getting Started
 
 ### To launch the project locally:
