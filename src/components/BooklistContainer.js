@@ -1,11 +1,11 @@
 import Booklist from './Booklist';
 import AddForm from './AddForm';
 
-const BookListContainer = () => (
+const BooklistContainer = () => (
   <section className="booklist-section">
     <Booklist />
     <AddForm />
   </section>
 );
 
-export default BookListContainer;
+export default BooklistContainer;
