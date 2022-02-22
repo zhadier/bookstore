@@ -1,15 +1,17 @@
+import { useSelector } from 'react-redux';
 import Book from './BookItem';
+import { saveState } from '../logic/localStorage';
 
 const Booklist = () => {
-  const booksData = [
-    // added books here just to ilustrate
-    { id: 1, title: 'The Hobbit', author: 'J.R.R. Tolkien' },
-    { id: 2, title: 'The Da Vinci Code', author: 'Dan Brown' },
-    { id: 3, title: 'Pinocchio', author: 'Carlo Collodi' },
-  ];
-  return booksData.map((item) => (
-    <Book genre={item.genre} title={item.title} author={item.author} key={item.id} />
-  ));
+  const bookList = useSelector((state) => state.booksReducer);
+  saveState(bookList);
+  return (
+    <ul>
+      {bookList.map((item) => (
+        <Book category={item.category} title={item.title} key={item.id} id={item.id} />
+      ))}
+    </ul>
+  );
 };
 
 export default Booklist;
