@@ -1,17 +1,24 @@
 import { PropTypes } from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/books';
 
 const BookItem = (props) => {
-  const { genre, title, author } = props;
+  const { category, title, id } = props;
+  const dispatch = useDispatch();
+
+  const removeBookFromStore = () => {
+    dispatch(removeBook(id));
+  };
 
   return (
     <li className="book-container">
       <div className="book-header">
-        <span className="book-header__category">{genre}</span>
+        <span className="book-header__category">{category}</span>
         <h3 className="book-header__title">{title}</h3>
-        <p className="book-header__author">{author}</p>
+        <p className="book-header__author">J.R.R Tolkein</p>
         <div className="book-header__buttons">
           <button type="button">Comments</button>
-          <button type="button">Remove</button>
+          <button type="button" onClick={removeBookFromStore}>Remove</button>
           <button type="button">Edit</button>
         </div>
       </div>
@@ -22,9 +29,9 @@ const BookItem = (props) => {
 };
 
 BookItem.propTypes = {
-  genre: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default BookItem;
