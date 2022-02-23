@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../redux/books/books';
+import { addBookToAPI } from '../redux/books/books';
 
 const categories = [
   'Fantasy',
@@ -48,11 +48,11 @@ const AddForm = () => {
       return;
     }
     const newBook = {
+      item_id: uuidv4(),
       title,
       category,
-      id: uuidv4(), // make sure it's unique
     };
-    dispatch(addBook(newBook));
+    dispatch(addBookToAPI(newBook));
     setTitle('');
     setCategory('');
   };
