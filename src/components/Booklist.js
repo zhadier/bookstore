@@ -6,7 +6,13 @@ const Booklist = () => {
   return (
     <ul>
       {bookList.map((item) => (
-        <Book category={item.category} title={item.title} key={item.item_id} id={item.item_id} />
+        <Book
+          category={item.category}
+          title={item.title}
+          key={item.item_id}
+          id={item.item_id}
+          author={item.author}
+        />
       ))}
     </ul>
   );

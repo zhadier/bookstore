@@ -3,7 +3,12 @@ import { useDispatch } from 'react-redux';
 import { removeBookFromAPI } from '../redux/books/books';
 
 const BookItem = (props) => {
-  const { category, title, id } = props;
+  const {
+    category,
+    title,
+    id,
+    author,
+  } = props;
   const dispatch = useDispatch();
 
   const removeBookFromStore = () => {
@@ -15,7 +20,7 @@ const BookItem = (props) => {
       <div className="book-header">
         <span className="book-header__category">{category}</span>
         <h3 className="book-header__title">{title}</h3>
-        <p className="book-header__author">J.R.R Tolkein</p>
+        <p className="book-header__author">{author}</p>
         <div className="book-header__buttons">
           <button type="button">Comments</button>
           <button type="button" onClick={removeBookFromStore}>Remove</button>
@@ -32,6 +37,7 @@ BookItem.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
 };
 
 export default BookItem;
