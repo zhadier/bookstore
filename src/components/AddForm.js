@@ -5,6 +5,7 @@ import { addBookToAPI } from '../redux/books/books';
 
 const categories = [
   'Fantasy',
+  'Drama',
   'Adventure',
   'Romance',
   'Action',
@@ -18,11 +19,16 @@ const categories = [
 const AddForm = () => {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
+  const [author, setAuthor] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const dispatch = useDispatch();
 
   const onTitleChange = (e) => {
     setTitle(e.target.value);
+  };
+
+  const onAuthorChange = (e) => {
+    setAuthor(e.target.value);
   };
 
   const onCategoryChange = (e) => {
@@ -38,9 +44,9 @@ const AddForm = () => {
 
   const submitBookToStore = (e) => {
     e.preventDefault();
-    if (title.trim().length === 0) {
+    if (title.trim().length === 0 || author.trim().length === 0) {
       setTitle('');
-      displayErrorMessage('Please input correct Title');
+      displayErrorMessage('Please remove whitespace in Title and Author');
       return;
     }
     if (category === '') {
@@ -51,10 +57,12 @@ const AddForm = () => {
       item_id: uuidv4(),
       title,
       category,
+      author,
     };
     dispatch(addBookToAPI(newBook));
     setTitle('');
     setCategory('');
+    setAuthor('');
   };
 
   return (
@@ -65,10 +73,19 @@ const AddForm = () => {
           className="form-book__title"
           type="text"
           required
-          placeholder="Book title"
+          placeholder="Book Title"
           value={title}
           onChange={onTitleChange}
           onBlur={onTitleChange}
+        />
+        <input
+          className="form-book__Author"
+          type="text"
+          required
+          placeholder="Book Author"
+          value={author}
+          onChange={onAuthorChange}
+          onBlur={onAuthorChange}
         />
         <div className="form-book__category">
           <select

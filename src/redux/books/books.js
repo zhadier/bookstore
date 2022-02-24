@@ -24,7 +24,11 @@ export const addBookToAPI = (newBook) => async (dispatch) => {
   dispatch(addBook(newBook));
   await fetch(`${baseURL}/apps/${appID}/books`, {
     method: 'POST',
-    body: JSON.stringify(newBook),
+    body: JSON.stringify({
+      item_id: newBook.item_id,
+      title: { bookTitle: newBook.title, bookAuthor: newBook.author },
+      category: newBook.category,
+    }),
     headers: { 'Content-type': 'application/JSON' },
   });
 };
@@ -35,7 +39,8 @@ export const getBooksFromAPI = () => async (dispatch) => {
     .then((bookList) => {
       const arrangedList = Object.entries(bookList).map(([key, value]) => ({
         item_id: key,
-        title: value[0].title,
+        title: value[0].title.bookTitle,
+        author: value[0].title.bookAuthor,
         category: value[0].category,
       }));
       if (arrangedList) {
