@@ -12,6 +12,7 @@ const Booklist = () => {
           key={item.item_id}
           id={item.item_id}
           author={item.author}
+          percent={Math.floor(Math.random() * 100) + 1}
         />
       ))}
     </ul>
