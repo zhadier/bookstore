@@ -1,0 +1,18 @@
+.categories-section {
+  background-color: white;
+  margin: auto;
+  margin-top: 10%;
+  padding: 2rem 1.688rem 1.625rem 1.688rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 50%;
+
+  h2 {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #4386bf;
+    text-align: center;
+  }
+}

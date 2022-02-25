@@ -79,7 +79,7 @@ const AddForm = () => {
           onBlur={onTitleChange}
         />
         <input
-          className="form-book__Author"
+          className="form-book__author"
           type="text"
           required
           placeholder="Book Author"
@@ -110,7 +110,7 @@ const AddForm = () => {
           ADD BOOK
         </button>
       </form>
-      <p>{errorMsg}</p>
+      <p className="error">{errorMsg}</p>
     </div>
   );
 };

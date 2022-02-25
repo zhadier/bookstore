@@ -1,0 +1,306 @@
+.booklist-section {
+  display: flex;
+  flex-direction: column;
+  margin: 2.313rem 6.25rem;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.938rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 2px solid #e8e8e8;
+
+    li {
+      background-color: white;
+      padding: 2rem 9.188rem 1.625rem 1.688rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .book-header {
+        span {
+          margin-bottom: 0.25rem;
+          opacity: 0.5;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: bold;
+          font-size: 0.875rem;
+        }
+
+        h3 {
+          margin: 0.3rem 0 0.2rem 0;
+          font-family: 'Roboto Slab', sans-serif;
+          font-size: 1.375rem;
+          color: #121212;
+          font-weight: bold;
+        }
+
+        p {
+          font-family: 'Roboto Slab', sans-serif;
+          font-size: 0.875rem;
+          font-weight: 300;
+          color: #4386bf;
+        }
+
+        .book-header__buttons {
+          margin-top: 1rem;
+          display: flex;
+
+          button {
+            font-family: 'Roboto Slab', serif;
+            font-size: 0.875rem;
+            border: none;
+            background-color: white;
+            font-weight: 300;
+            color: #4386bf;
+            padding: 0.25rem 1rem;
+            border-left: 2px solid #e8e8e8;
+
+            &:nth-child(1) {
+              border: 0;
+              padding-left: 0;
+            }
+
+            &:hover {
+              color: rgb(165, 135, 135);
+            }
+
+            &:active {
+              color: rgb(218, 42, 42);
+            }
+          }
+        }
+      }
+
+      .book-data {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .book-progress {
+          display: flex;
+          gap: 2rem;
+          padding-right: 2rem;
+          border-right: 1px solid #e8e8e8;
+
+          .book-progress__value {
+            .book-progress__value-percent {
+              width: 4.25rem;
+              height: 2.438rem;
+              font-family: 'Montserrat', sans-serif;
+              font-size: 2rem;
+              color: #121212;
+            }
+
+            .book-progress__value-completed {
+              width: 5rem;
+              height: 1.125rem;
+              opacity: 0.5;
+              font-family: 'Montserrat', sans-serif;
+              font-size: 0.875rem;
+              color: #121212;
+            }
+          }
+
+          .book-progress__bar {
+            height: 2rem;
+            width: 2rem;
+            position: relative;
+            transform: scale(2);
+
+            .inner {
+              position: absolute;
+              z-index: 6;
+              top: 50%;
+              left: 50%;
+              height: 1.75rem;
+              width: 1.75rem;
+              margin: -0.875rem 0 0 -0.875rem;
+              background: white;
+              border-radius: 100%;
+            }
+
+            .bar {
+              position: absolute;
+              height: 100%;
+              width: 100%;
+              background: #e8e8e8;
+              -webkit-border-radius: 100%;
+              border-radius: 100%;
+              clip: rect(0, 2rem, 2rem, 1rem);
+            }
+
+            .circle .bar .progress {
+              position: absolute;
+              height: 100%;
+              width: 100%;
+              -webkit-border-radius: 100%;
+              border-radius: 100%;
+              clip: rect(0, 1rem, 2rem, 0);
+              background: linear-gradient(to bottom, #307bbe, #379cf6);
+            }
+
+            .circle .left .progress {
+              z-index: 1;
+              animation: left 2s linear both;
+            }
+
+            @keyframes left {
+              100% {
+                transform: rotate(180deg);
+              }
+            }
+
+            .circle .right {
+              transform: rotate(175deg);
+              z-index: 3;
+            }
+
+            .circle .right .progress {
+              animation: right 1s linear both;
+              animation-delay: 2s;
+            }
+
+            @keyframes right {
+              100% {
+                transform: rotate(95deg);
+              }
+            }
+          }
+        }
+
+        .book-chapter {
+          display: flex;
+          margin: 0.063rem 3.625rem 0 3.688rem;
+          flex-direction: column;
+          justify-content: center;
+
+          .book-chapter__title {
+            opacity: 0.5;
+            font-family: 'Roboto Slab', sans-serif;
+            font-size: 0.813rem;
+            font-weight: 300;
+            color: #121212;
+          }
+
+          .book-chapter__current {
+            margin-top: 0.438rem;
+            font-family: 'Roboto Slab', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: -0.4px;
+            color: #121212;
+          }
+
+          .book-chapter__update {
+            margin-top: 1.45rem;
+            width: 11.5rem;
+            height: 2.063rem;
+            padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+            border-radius: 3px;
+            background-color: #0290ff;
+            font-family: 'Roboto Slab', sans-serif;
+            font-size: 0.813rem;
+            font-weight: 100;
+            letter-spacing: 0.5px;
+            text-align: center;
+            border: 1px;
+            color: #fff;
+            transition: 0.2s background-color linear;
+
+            &:hover {
+              background-color: rgb(50, 50, 255);
+            }
+
+            &:active {
+              background-color: rgb(50, 50, 255);
+              box-shadow: inset 0 0 10px black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.form-container {
+  h2 {
+    margin: 1.813rem 0 1.188rem 0;
+    font-family: 'Montserrat', serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: -0.18px;
+    color: #888;
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-book__title,
+    .form-book__author {
+      width: 22rem;
+      height: 2.813rem;
+      margin: 1.188rem 2.125rem 0 0;
+      padding: 0.813rem 1.063rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: solid 1px #e8e8e8;
+      background-color: #fff;
+
+      &::placeholder {
+        font-family: 'Montserrat', serif;
+        font-size: 1rem;
+        letter-spacing: -0.15px;
+        color: #c4c4c4;
+      }
+    }
+
+    .form-book__category {
+      select {
+        cursor: pointer;
+        width: 17.813rem;
+        height: 2.813rem;
+        margin: 1.188rem 4rem 0 0;
+        padding: 0.375rem 0.938rem 0.563rem 1rem;
+        border-radius: 4px;
+        border: solid 1px #e8e8e8;
+        background-color: #fff;
+        font-family: 'Montserrat', serif;
+        font-size: 1rem;
+        letter-spacing: -0.15px;
+      }
+    }
+
+    .form-book__add {
+      display: flex;
+      min-width: 11.5rem;
+      height: 2.813rem;
+      margin: 1.188rem 0;
+      padding: 0.801rem 1.188rem;
+      border-radius: 3px;
+      background-color: #0290ff;
+      font-family: 'Roboto Slab', sans-serif;
+      font-size: 0.813rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      transition: 0.2s background-color linear;
+      border: 0;
+
+      &:hover {
+        background-color: rgb(50, 50, 255);
+      }
+
+      &:active {
+        background-color: rgb(50, 50, 255);
+        box-shadow: inset 0 0 10px black;
+      }
+    }
+  }
+
+  .error {
+    color: red;
+  }
+}
