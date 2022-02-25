@@ -1,41 +1,55 @@
-$dark-blue : rgb(19, 19, 77);
-
 header {
   display: flex;
   background: white;
-  padding: 10px 30px;
+  padding: 1.438rem 6.188rem 1.688rem 6.25rem;
   align-items: center;
-  outline: 1px solid;
+  border: 1px solid #e8e8e8;
 
   .logo {
-    font-size: 1.2rem;
-    color: $dark-blue;
+    font-size: 1.875rem;
+    color: #0290ff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin-right: 2.938rem;
   }
 
   nav {
     display: flex;
+    flex: 200px 2 1;
+    justify-content: space-between;
 
     ul {
       list-style: none;
       display: flex;
 
       li {
-        padding: 0 20px;
-
-        &:hover {
-          transform: scale(1.15);
-        }
+        display: flex;
+        align-items: center;
 
         a {
           text-decoration: none;
-          font-size: 1rem;
-          color: $dark-blue;
+          font-size: 0.813rem;
+          margin: 0 2.563rem 0 0;
+          color: #121212;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: normal;
+          transition: 0.2s color linear;
 
           &:hover {
             color: rgb(165, 135, 135);
           }
         }
       }
+    }
+
+    .user-icon {
+      margin-left: auto;
+      width: 1.9rem;
+      height: 1.9rem;
+      border: 1px solid #e8e8e8;
+      border-radius: 100%;
+      color: #0290ff;
+      padding: 0.3rem;
     }
   }
 }
